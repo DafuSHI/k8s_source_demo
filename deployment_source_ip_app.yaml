@@ -1,0 +1,19 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: source-ip-app-deployment
+spec:
+  selector:
+    matchLabels:
+      app: source-ip-app
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: source-ip-app
+    spec:
+      containers:
+      - name: source-ip-app
+        image: k8s.gcr.io/echoserver:1.4
+        ports:
+        - containerPort: 80

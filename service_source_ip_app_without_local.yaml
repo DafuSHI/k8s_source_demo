@@ -1,0 +1,17 @@
+--- 
+apiVersion: v1
+kind: Service
+metadata: 
+  labels: 
+    app: source-ip-app
+  name: source-ip-app
+spec: 
+  ports: 
+    - 
+      nodePort: 30089
+      port: 80
+      targetPort: 8080
+  selector: 
+    app: source-ip-app
+  type: NodePort
+
